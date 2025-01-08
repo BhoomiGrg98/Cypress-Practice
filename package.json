@@ -1,0 +1,22 @@
+{
+  "name": "cypress",
+  "version": "1.0.0",
+  "description": "package",
+  "main": "test",
+  "scripts": {
+    "test": "cypress-test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BhoomiGrg98/Cypress-Practice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BhoomiGrg98/Cypress-Practice/issues"
+  },
+  "homepage": "https://github.com/BhoomiGrg98/Cypress-Practice#readme",
+  "devDependencies": {
+    "cypress": "^13.17.0"
+  }
+}

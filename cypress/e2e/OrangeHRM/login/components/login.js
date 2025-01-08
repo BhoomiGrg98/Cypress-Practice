@@ -1,4 +1,4 @@
-
+import { selectLocByIndex } from "../../helper/helper"
 class HRMLogin
 {
 
@@ -14,19 +14,19 @@ class HRMLogin
     enterUserName(username)
     {
         cy.get(this.userNameFieldLocator).type(username)
-        cy.wait(3000)
+        cy.wait(2000)
     }
 
     enterPassword(password)
     {
         cy.get(this.passwordFiledLocator).type(password)
-        cy.wait(3000)
+        cy.wait(2000)
     }
 
     clickSubmit()
     {
         cy.get(this.submitButtonLocator).click()
-        cy.wait(3000)
+        cy.wait(2000)
     }
 
     verifyInvalidMsg(errormessage)
@@ -35,11 +35,11 @@ class HRMLogin
         .should('have.text', errormessage)
     }
 
-    verifyValidationMsg(number, message)
+    verifyValidationMsg(index, message)
     {
-        cy.get(this.validationMsgLocator)
-        .eq(number)
-        .should('have.text', message)
+        for (let i = 0; i <= index; i++) {
+            selectLocByIndex(this.validationMsgLocator,i,  message)
+        }
     }
 
 

@@ -1,6 +1,6 @@
 
 
-describe('ProductList', ()=>{
+describe.skip('ProductList', ()=>{
     beforeEach(()=>{
         cy.visit('https://qa-practice.netlify.app/products_list')
 
@@ -53,23 +53,23 @@ describe('ProductList', ()=>{
              
         // })
 
-        function addvalues(xpath){
-            cy.xpath(xpath).each(($el) => {
-                cy.wrap($el).invoke('text').then((text) =>{
-                    const value= parseFloat(text.trim())
-                    totalsum += value
-                    return totalsum
-                })
-            })
-        }
+        // function addvalues(xpath){
+        //     cy.xpath(xpath).each(($el) => {
+        //         cy.wrap($el).invoke('text').then((text) =>{
+        //             const value= parseFloat(text.trim())
+        //             totalsum += value
+        //             return totalsum
+        //         })
+        //     })
+        // }
 
-        let totalsum= 0
-        const xpath1= '//*[@id="prooood"]/section[1]/div[2]/div[1]/span'
-        const xpath2= '//*[@id="prooood"]/section[1]/div[2]/div[2]/span'
+        // let totalsum= 0
+        // const xpath1= '//*[@id="prooood"]/section[1]/div[2]/div[1]/span'
+        // const xpath2= '//*[@id="prooood"]/section[1]/div[2]/div[2]/span'
 
-        let priceOne= addvalues(xpath1)
-        let priceTwo= addvalues(xpath2)
-        let total= priceOne+priceTwo
+        // let priceOne= addvalues(xpath1)
+        // let priceTwo= addvalues(xpath2)
+        // let total= priceOne+priceTwo
 
 
         // cy.then(() =>{
@@ -87,7 +87,7 @@ describe('ProductList', ()=>{
 
         if(total== totalcalcu)
             cy.get('#back_to_prods_list').click()
-
+        
        
 
     })

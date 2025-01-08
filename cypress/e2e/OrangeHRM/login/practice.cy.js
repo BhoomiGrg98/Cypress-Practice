@@ -1,14 +1,12 @@
 describe('ProductList', ()=>{
     beforeEach(()=>{
         cy.visit('https://opensource-demo.orangehrmlive.com/web/auth/login')
-        cy.wait(3000                                            )
+        cy.wait(3000)
 
     })
 
     it.skip('Verify sucessful login ', ()=>{
-        cy.get("input[placeholder='Username']").type('admin')
-        cy.get("input[placeholder='Password']").type("admin123")
-        cy.get("button[type='submit']").click()
+      
     })
 
     it.skip('Verify invalid username and password', ()=>{
@@ -26,12 +24,9 @@ describe('ProductList', ()=>{
         cy.wait(3000)
         // cy.get('.oxd-alert-content > .oxd-text').contains('invalid credentials')
 
-
-
     })
 
     it('Verify Empty username and password', ()=>{
-        
         cy.get("button[type='submit']").click()
         cy.wait(3000)
 
@@ -39,10 +34,6 @@ describe('ProductList', ()=>{
         .eq(0)
         .should('have.text', 'Required')
         
-        // cy.get(':nth-child(2) > .oxd-input-group > .oxd-text').contains("Required")
-
-        // cy.get(':nth-child(3) > .oxd-input-group > .oxd-text').contains('Required')
-
 
     })
 

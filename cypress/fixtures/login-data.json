@@ -1,0 +1,9 @@
+{
+    "validUsername":"Admin", 
+    "validPassword":"admin123", 
+    "invalidUsername":"dfdf", 
+    "invalidPassword": "34nbs",
+    "errormessage": "Invalid credentials",
+    "validationMsg": "Required"
+    
+}

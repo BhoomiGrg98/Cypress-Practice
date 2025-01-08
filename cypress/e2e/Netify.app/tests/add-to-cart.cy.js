@@ -12,36 +12,36 @@ describe('Shopping cart', ()=>{
     })
 
     it('Verify Adding single item to the carts', ()=>{
-        shoppingCart.addCartBtn()
+        shoppingCart.addCartBtn() //Select one product and click add to cart button
         cy.scrollTo('top')
         cy.wait(4000)
     })
 
     it('verify adding multiple item to cart', ()=>{
-        shoppingCart.addCartBtnClick(2)
+        shoppingCart.addCartBtnClick(2) //Select multiple product and click add to cart button 
         cy.scrollTo('top')
         cy.wait(3000)
     })
 
 
     it('verify removing items from cart', ()=>{
-        shoppingCart.addCartBtnClick(2)
+        shoppingCart.addCartBtnClick(2)  //Selct multiple product and click add to cart button
         cy.scrollTo('top')
         cy.wait(3000)
 
-        shoppingCart.clickRemoveBtn(2)
+        shoppingCart.clickRemoveBtn(2)  //Remove the selected product 
         cy.scrollTo('top')
         cy.wait(3000)
 
     })
 
     it('verify purchasing from selected cart', ()=>{
-        shoppingCart.addCartBtnClick(3)
+        shoppingCart.addCartBtnClick(3) // Select multiple product and click add to cart 
         cy.scrollTo('top')
         cy.wait(3000)
 
-        shoppingCart.clickPurchaseBtn()
-        shoppingCart.confirmPurchaseSuccess(message)
+        shoppingCart.clickPurchaseBtn()  // Click Purchase button
+        shoppingCart.confirmPurchaseSuccess(message)   // Verify the sucess message 
         
     })
 
