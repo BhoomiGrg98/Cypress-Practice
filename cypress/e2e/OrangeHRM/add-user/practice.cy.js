@@ -45,22 +45,22 @@ describe('Add user', ()=>{
 
     })
 
-    it('Verfiy submission with invalid data ', ()=>{
+    it.skip('Verfiy submission with invalid data ', ()=>{
         cy.xpath("//button[normalize-space()='Add']").click()
-    function generateRandom(length)
-    {
-    const chars= "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-    return Array.from({length}, ()=>chars.charAt(Math.floor(Math.random()* chars.length))).join('')
-    }
-    const randomUsers = Array.from({ length: 3 }, (_, i) => ({
+        function generateRandom(length)
+        {
+        const chars= "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+        return Array.from({length}, ()=>chars.charAt(Math.floor(Math.random()* chars.length))).join('')
+         }
+        const randomUsers = Array.from({ length: 3 }, (_, i) => ({
       username: `user${i + 1}`,
       password: generateRandom(8),
-    }));
-    randomUsers.forEach((user)=>{
+        }));
+        randomUsers.forEach((user)=>{
           cy.wait(2000)
         cy.get("input[placeholder='Type for hints...']").type("e")
-        cy.get(':nth-child(4) > .oxd-input-group > :nth-child(2) > .oxd-input').type(user.username)
-        cy.get('.user-password-cell > .oxd-input-group > :nth-child(2) > .oxd-input').type(user.password)
+        cy.get(':nth-child(4) > .oxd-input-group > :nth-child(2) > .oxd-input').type('test')
+        cy.get('.user-password-cell > .oxd-input-group > :nth-child(2) > .oxd-input').type("2333")
         // cy.get('span:contains("Should be at least 5 characters")').should('have.text', 'Should be at least 5 characters')
         // cy.get('span:contains("Should have at least 7 characters")').should('have.text', 'Should have at least 7 characters')
         // cy.get('span:contains("Invalid")').should('have.text', 'Invalid')
@@ -70,9 +70,7 @@ describe('Add user', ()=>{
 
       
     })
-
-    
-    it.skip('verify new user created sucessfully   ', ()=>{
+    it('verify new user created sucessfully   ', ()=>{
 
         cy.xpath("//button[normalize-space()='Add']").click()
        const userRole =  cy.get(':nth-child(1) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper')

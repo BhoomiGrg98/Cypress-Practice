@@ -1,5 +1,5 @@
 
-import { dropdownSelect, selectLocByIndex } from "../../helper/helper.js"
+import { dropdownSelect, selectLocByIndex, clickBtn, checkValidity } from "../../helper/helper.js"
 
 class newUser
 {
@@ -9,7 +9,7 @@ class newUser
         this.addBtnLoc= "//button[normalize-space()='Add']"
         this.saveBtnLoc= ".oxd-button--secondary"
         this.userRoleSelectLoc=":nth-child(1) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper"
-        this.selectUserRoleFromDropdown= 'div.oxd-select-option:contains("${role}")'
+        this.selectUserRoleFromDropdown= 'div.oxd-select-option:contains("Admin")'
         this.employeeClickLoc=".oxd-autocomplete-text-input.oxd-autocomplete-text-input--active"
         this.employeeNameLoc=  ".oxd-autocomplete-text-input > input"
         this.statusLoc= ":nth-child(3) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text"
@@ -18,7 +18,6 @@ class newUser
         this.passwordLoc=".user-password-cell > .oxd-input-group > :nth-child(2) > .oxd-input"
         this.confirmPassLoc=":nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input"
         this.validationMsgLoc= ".oxd-input-group > .oxd-text"
-
 
     }
 
@@ -41,44 +40,56 @@ class newUser
     {
         cy.get(this.userRoleSelectLoc)
         .click()
-
         cy.get(this.selectUserRoleFromDropdown)
         .click()
 
     }
 
+    enterEmployee(data)
+        {
+            cy.get(this.employeeNameLoc)
+            .wait(2000)
+            .type(data)
+        }
+
     selectEmployee(data)
-    {   
-        dropdownSelect(this.employeeNameLoc, data)  
-    }
+        {   
+            dropdownSelect(this.employeeNameLoc, data)
+        }
 
     selectStatus()
-    {
-        cy.get(this.statusLoc)
-        .click()
-        cy.wait(2000)
-        cy.get(this.selectStatusLoc).click()
-    }
+        {
+            cy.get(this.statusLoc)
+             .click()
+            cy.wait(2000)
+            cy.get(this.selectStatusLoc).click()
+        }
 
     enterUsername(data)
-    {
-        cy.get(this.usernameLoc).type(data)
-    }
+        {
+            cy.get(this.usernameLoc)
+            .wait(2000)
+            .type(data)
+        } 
 
     enterPassword(data)
-    {
-        cy.get(this.passwordLoc).type(data)
-    }
+        {
+            cy.get(this.passwordLoc)
+            .wait(2000)
+            .type(data)
+        }
 
     enterConfirmPassword(data)
-    {
-        cy.get(this.confirmPassLoc).type(data)
-    }
+        {
+            cy.get(this.confirmPassLoc)
+            .wait(2000)
+            .type(data)
+        }
 
     clickSaveBtn()
-    {
-        cy.get(this.saveBtnLoc).click()
-    }
+        {
+            clickBtn(this.saveBtnLoc)
+        }
     
     verifyValidationMsg(index, message)
     {
@@ -87,6 +98,32 @@ class newUser
         }
     }
 
+    checkErrorMsg(locator, message)
+        {
+            cy.get(locator).should('text', message)
+        }
+        
+    errMsgUser(data)
+        {
+           checkValidity(data)
+        }
+     
+    errMsgPass(data)
+        {
+           checkValidity(data)
+             
+        }
+    
+    errMismatchMsg(data)
+        {
+            checkValidity(data)
+        }
+    
+    errEmployeeMsg(data)
+        {
+            checkValidity(data)
+        }
+    
 
 } 
 export default newUser

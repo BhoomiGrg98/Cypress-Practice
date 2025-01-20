@@ -1,0 +1,14 @@
+{
+    "user": "Micheal",
+    "pass": "MichealTest123",
+    "invUser": "Test",
+    "invPass": "123",
+    "passMismatch": "Test12343434",
+    "invUserMsg" : "Should be at least 5 characters",
+    "invPassMsg": "Should have at least 7 characters",
+    "invEmpMsg": "Invalid",
+    "misMatchPass": "Passwords do not match"
+    
+}
+
+
