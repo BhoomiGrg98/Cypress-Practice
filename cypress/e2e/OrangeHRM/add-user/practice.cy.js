@@ -47,17 +47,17 @@ describe('Add user', ()=>{
 
     it.skip('Verfiy submission with invalid data ', ()=>{
         cy.xpath("//button[normalize-space()='Add']").click()
-        function generateRandom(length)
-        {
-        const chars= "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-        return Array.from({length}, ()=>chars.charAt(Math.floor(Math.random()* chars.length))).join('')
-         }
-        const randomUsers = Array.from({ length: 3 }, (_, i) => ({
-      username: `user${i + 1}`,
-      password: generateRandom(8),
-        }));
-        randomUsers.forEach((user)=>{
-          cy.wait(2000)
+    //     function generateRandom(length)
+    //     {
+    //     const chars= "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+    //     return Array.from({length}, ()=>chars.charAt(Math.floor(Math.random()* chars.length))).join('')
+    //      }
+    //     const randomUsers = Array.from({ length: 3 }, (_, i) => ({
+    //   username: `user${i + 1}`,
+    //   password: generateRandom(8),
+    //     }));
+    //     randomUsers.forEach((user)=>{
+    //       cy.wait(2000)
         cy.get("input[placeholder='Type for hints...']").type("e")
         cy.get(':nth-child(4) > .oxd-input-group > :nth-child(2) > .oxd-input').type('test')
         cy.get('.user-password-cell > .oxd-input-group > :nth-child(2) > .oxd-input').type("2333")
